@@ -1,0 +1,45 @@
+using System;
+
+public class Test
+{
+    public static void oddEvenInsertionSort(int[] arr, int n){
+        for (int i = 2; i < n; i++) 
+        { 
+            int j = i - 2; 
+            int temp = arr[i]; 
+            
+            if ((i+1)%2 == 1) 
+            { 
+                while (j >= 0 && temp >= arr[j]) 
+                { 
+                    arr[j + 2] = arr[j]; 
+                    j -= 2; 
+                } 
+                arr[j + 2] = temp; 
+            }  
+              
+             
+            else
+            { 
+                while (j >= 0 && temp <= arr[j]) 
+                { 
+                    arr[j + 2] = arr[j]; 
+                    j -= 2; 
+                } 
+                arr[j + 2] = temp; 
+            } 
+        } 
+    }
+    public static void printArray(int[] arr, int n){
+        for(int i=0;i<n;i++){
+            Console.Write(arr[i] + " ");
+        }
+    }
+	public static void Main()
+	{
+		// your code goes here
+		int[] arr = {23,42,1,4,2,354,221,21,47};
+		oddEvenInsertionSort(arr, 9);
+		printArray(arr, 9);
+	}
+}
