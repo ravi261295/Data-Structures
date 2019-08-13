@@ -1,0 +1,33 @@
+                            // --- Naive Pattern Searching Optimized --- //
+#include <iostream>
+using namespace std;
+
+void NaivePatternSearch(string str , string pattern){
+    int i=0, j;
+    while(i<=str.length() - pattern.length()){
+        
+        for(j=0;j<pattern.length();j++){
+            if(pattern[j]!=str[i+j])
+                break;
+        }
+        
+        if(j==pattern.length()){
+            cout<<"Pattern is found at position "<<i<<endl;
+            i = i + pattern.length();
+        }
+        
+        else {
+            i = i+j;
+        }
+    }
+}
+
+int main() {
+	// your code goes here
+	string str;
+	cin>>str;
+	string pattern;
+	cin>>pattern;
+	NaivePatternSearch(str, pattern);
+	return 0;
+}
