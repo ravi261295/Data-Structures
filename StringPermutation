@@ -1,0 +1,26 @@
+        /* String all permutations
+          author @ Ravi Agarwal
+        */
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void permutate(string str, int low, int high){
+    if(low==high){
+        cout<<str<<" ";
+    }
+    
+    int i=low;
+    while(i<high){
+        swap(str[low], str[i]);
+        permutate(str, low+1, high);
+        swap(str[low], str[i]);
+        i++;
+    }
+}
+
+int main(){
+    string s="ABC";
+    permutate(s, 0, 3);//low=0, high=2
+    return 0;
+}
