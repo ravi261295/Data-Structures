@@ -1,0 +1,39 @@
+                /*
+                  Reverse a string using recursion without reversing its words.
+                  @author - Ravi Agarwal
+                */
+    
+#include <bits/stdc++.h>
+using namespace std;
+
+void reverseString(string str, int low, int high){
+    if(low==high){
+        return ;
+    }
+    string s="";
+    for(int i=low;i<high;i++){
+        
+        if(str[i]!=' ')
+            s=s+str[i];
+            
+        //for spaces
+        if(str[i]==' '){
+            reverseString(str, i+1, high);
+            cout<<s<<" ";
+            break;
+        }
+        
+        //for last  word
+        if(i==high-1){
+            cout<<s<<" ";
+            return;
+        }
+    }
+}
+
+int main() {
+    string s = "i love programming";
+    cout<<s.length()<<endl;
+    reverseString(s, 0, s.length());
+	return 0;
+}
